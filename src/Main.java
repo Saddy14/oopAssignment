@@ -9,10 +9,6 @@ public class Main {
 
       ArrayList<String> deck = new ArrayList<>();
 
-      // for (int i = 0; i < 52; i++) {
-
-      //    deck.add(rank[i%13] + suit[i/13]);
-      // }
       for (int i = 0; i < suit.length; i++) {
 
          for (int j = 0; j < rank.length; j++) {
@@ -39,4 +35,7 @@ public class Main {
 
    }
 
+
+
+   
 }
