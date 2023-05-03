@@ -48,18 +48,18 @@ public class Main {
       Player player4 = new Player();
 
 
-      // player1
+      // player1        // Check to see of deck is correctly working
       player1.dealCard(deck);
       System.out.println();
       System.out.println("Player1: "+player1.playerCard);
-      System.out.println("Deck Size: "+player1.playerCard.size());
+      System.out.println("Deck Size: "+player1.playerCard.size()); 
       System.out.println();
 
       deck = removeFromDeck(deck, player1.playerCard); 
       System.out.println("New Deck\n"+deck);
       System.out.println("Deck Size: "+ deck.size());
 
-      // player2
+      // player2        // Check to see of deck is correctly working
       player2.dealCard(deck);
       System.out.println();
       System.out.println("Player2: "+player2.playerCard);
@@ -70,7 +70,7 @@ public class Main {
       System.out.println("New Deck\n"+deck);
       System.out.println("Deck Size: "+ deck.size());
 
-      // player3
+      // player3        // Check to see of deck is correctly working
       player3.dealCard(deck);
       System.out.println();
       System.out.println("Player3: "+player3.playerCard);
@@ -81,7 +81,7 @@ public class Main {
       System.out.println("New Deck\n"+deck);
       System.out.println("Deck Size: "+ deck.size());
 
-      // player4 
+      // player4        // Check to see of deck is correctly working
       player4.dealCard(deck);
       System.out.println();
       System.out.println("Player4: "+player4.playerCard);
