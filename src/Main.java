@@ -15,7 +15,7 @@ public class Main {
 
          for (int j = 0; j < rank.length; j++) {
 
-            String temp = (rank[j] + suit[i]);
+            String temp = (suit[i] + rank[j]);
             deck.add(tempIndex, temp);
             tempIndex++;
          }
@@ -42,9 +42,66 @@ public class Main {
       System.out.println(deck);
       System.out.println("Deck Size: "+ deck.size());
 
+      Player player1 = new Player();
+      Player player2 = new Player();
+      Player player3 = new Player();
+      Player player4 = new Player();
+
+
+      // player1
+      player1.dealCard(deck);
+      System.out.println();
+      System.out.println("Player1: "+player1.playerCard);
+      System.out.println("Deck Size: "+player1.playerCard.size());
+      System.out.println();
+
+      deck = removeFromDeck(deck, player1.playerCard); 
+      System.out.println("New Deck\n"+deck);
+      System.out.println("Deck Size: "+ deck.size());
+
+      // player2
+      player2.dealCard(deck);
+      System.out.println();
+      System.out.println("Player2: "+player2.playerCard);
+      System.out.println("Deck Size: "+player2.playerCard.size());
+      System.out.println();
+
+      deck = removeFromDeck(deck, player2.playerCard); 
+      System.out.println("New Deck\n"+deck);
+      System.out.println("Deck Size: "+ deck.size());
+
+      // player3
+      player3.dealCard(deck);
+      System.out.println();
+      System.out.println("Player3: "+player3.playerCard);
+      System.out.println("Deck Size: "+player3.playerCard.size());
+      System.out.println();
+
+      deck = removeFromDeck(deck, player3.playerCard); 
+      System.out.println("New Deck\n"+deck);
+      System.out.println("Deck Size: "+ deck.size());
+
+      // player4 
+      player4.dealCard(deck);
+      System.out.println();
+      System.out.println("Player4: "+player4.playerCard);
+      System.out.println("Deck Size: "+player4.playerCard.size());
+      System.out.println();
+
+      deck = removeFromDeck(deck, player4.playerCard); 
+      System.out.println("New Deck\n"+deck);
+      System.out.println("Deck Size: "+ deck.size());
+
    }
 
 
 
-   
+   private static ArrayList<String> removeFromDeck (ArrayList<String> deck, ArrayList<String> playerCard) {
+
+      for(int i = 0; i < playerCard.size(); i++) {
+      
+         deck.remove(playerCard.get(i));
+      }
+      return deck;
+   }
 }
