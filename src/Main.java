@@ -9,12 +9,19 @@ public class Main {
 
       ArrayList<String> deck = new ArrayList<>();
 
-      for (int i = 0; i < 52; i++) {
+      // for (int i = 0; i < 52; i++) {
 
-         deck.add(rank[i%13] + suit[i/13]);
-      }
+      //    deck.add(rank[i%13] + suit[i/13]);
+      // }
+      for (int i = 0; i < suit.length; i++) {
+
+         for (int j = 0; j < rank.length; j++) {
+             deck.add(rank[j] + suit[i]);
+         }
+     }
       // Check to see of deck is correctly working
       System.out.println(deck);
+      System.out.println("Deck Size: "+deck.size());
 
       // Random Deck
       Random random = new Random();
@@ -28,6 +35,8 @@ public class Main {
       // Check to see of deck is correctly working
       System.out.println();
       System.out.println(deck);
+      System.out.println("Deck Size: "+ deck.size());
+
    }
 
 }
