@@ -21,6 +21,7 @@ public class Main {
          }
      }
       // Check to see of deck is correctly working
+      System.out.println("B4 Suffle");
       System.out.println(deck);
       System.out.println("Deck Size: "+deck.size());
 
@@ -37,6 +38,7 @@ public class Main {
       
       // Check to see of deck is correctly working
       System.out.println();
+      System.out.println("After Suffle");
       System.out.println(deck);
       System.out.println("Deck Size: "+ deck.size());
 
