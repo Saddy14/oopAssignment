@@ -47,25 +47,4 @@ public class Deck {
         System.out.println();
     }
 
-    public ArrayList<String> getDeck() {
-        return deck;
-    }
-
-    public int getDeckSize() {
-        return deck.size();
-    }
-    
-    public void setDeck(ArrayList<String> deck) {
-        this.deck = deck;
-    }
-
-    // Method that remove's the card from the deck 
-    public ArrayList<String> removeFromDeck(ArrayList<String> playerCard) {
-
-        for (int i = 0; i < playerCard.size(); i++) {
-
-            deck.remove(playerCard.get(i));
-        }
-        return deck;
-    }
 }
