@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Main {
    public static void main(String[] args) {
       
-      Deck deck1 = new Deck();
+        Deck deck1 = new Deck();
         deck1.generateDeck();
         deck1.makeDeckRandom();
         deck1.getDeck();
