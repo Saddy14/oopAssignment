@@ -4,6 +4,12 @@ import java.util.Random;
 public class Main {
    public static void main(String[] args) {
 
+             
+      Player player1 = new Player();
+      Player player2 = new Player();
+      Player player3 = new Player();
+      Player player4 = new Player();
+
       String[] suit = { "c", "d", "h", "s" };
       String[] rank = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
 
@@ -42,19 +48,25 @@ public class Main {
       System.out.println(deck);
       System.out.println("Deck Size: "+ deck.size());
 
-      Player player1 = new Player();
-      Player player2 = new Player();
-      Player player3 = new Player();
-      Player player4 = new Player();
 
 
-      // player1        // Check to see of deck is correctly working
+      // Player 1 Cards
       player1.dealCard(deck);
       System.out.println();
       System.out.println("Player1: "+player1.playerCard);
       System.out.println("Deck Size: "+player1.playerCard.size()); 
       System.out.println();
 
+      // Player 1 
+      String[] suit1 = { "c", "d", "h", "s" };
+      String[] rank1 = { "A", "5", "9","K" };
+      ArrayList<String> leadingP1Card = player1.setLeadPlayerCard(suit1, rank1);
+      System.out.println("leadingP1Card: "+ leadingP1Card);
+      System.out.println("Size: "+ leadingP1Card.size());
+      System.out.println();
+
+      
+      
       deck = removeFromDeck(deck, player1.playerCard); 
       System.out.println("New Deck\n"+deck);
       System.out.println("Deck Size: "+ deck.size());
