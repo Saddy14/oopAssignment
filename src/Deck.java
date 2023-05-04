@@ -21,7 +21,7 @@ public class Deck {
             }
         }
         // Check to see of deck is correctly working
-        System.out.println("B4 Suffle");
+        System.out.println("Before Suffle");
         System.out.println(deck);
         System.out.println("Deck Size: "+deck.size());
     }
