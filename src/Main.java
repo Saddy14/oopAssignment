@@ -13,19 +13,19 @@ public class Main {
         Player player3 = new Player();
         Player player4 = new Player();
 
-        ArrayList<String> leadingP1Card = player1.setLeadPlayerCard(Player.suitForPlayer, Player.rankP1);
+        ArrayList<String> leadingP1Card = player1.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP1());
         System.out.println("leadingP1Card: "+leadingP1Card);
         System.out.println("Size: "+leadingP1Card.size());
         // 
-        ArrayList<String> leadingP2Card = player2.setLeadPlayerCard(Player.suitForPlayer, Player.rankP2);
+        ArrayList<String> leadingP2Card = player2.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP2());
         System.out.println("leadingP2Card: "+leadingP2Card);
         System.out.println("Size: "+leadingP2Card.size());
         // 
-        ArrayList<String> leadingP3Card = player3.setLeadPlayerCard(Player.suitForPlayer, Player.rankP3);
+        ArrayList<String> leadingP3Card = player3.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP3());
         System.out.println("leadingP3Card: "+leadingP3Card);
         System.out.println("Size: "+leadingP3Card.size());
         // 
-        ArrayList<String> leadingP4Card = player4.setLeadPlayerCard(Player.suitForPlayer, Player.rankP4);
+        ArrayList<String> leadingP4Card = player4.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP4());
         System.out.println("leadingP4Card: "+leadingP4Card);
         System.out.println("Size: "+leadingP4Card.size());
         System.out.println();
