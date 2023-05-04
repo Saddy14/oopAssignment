@@ -3,12 +3,15 @@ import java.util.ArrayList;
 public class Player {
     
     private static int noOfCardsEachPlayer = 7;
+    private int score = 0;
     
     @SuppressWarnings("unused")
     private static int noOfPlayer = 4;
-    @SuppressWarnings("unused")
-    private int score = 0;
     
+    public int getScore() {
+        return score;
+    }
+
     private static String[] suitForPlayer = {"c", "d", "h", "s"};
 
     public static String[] getSuitForPlayer() {

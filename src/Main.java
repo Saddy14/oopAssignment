@@ -12,23 +12,19 @@ public class Main {
         Player player2 = new Player();
         Player player3 = new Player();
         Player player4 = new Player();
-
+        
         ArrayList<String> leadingP1Card = player1.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP1());
-        System.out.println("leadingP1Card: "+leadingP1Card);
-        System.out.println("Size: "+leadingP1Card.size());
-        // 
         ArrayList<String> leadingP2Card = player2.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP2());
-        System.out.println("leadingP2Card: "+leadingP2Card);
-        System.out.println("Size: "+leadingP2Card.size());
-        // 
         ArrayList<String> leadingP3Card = player3.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP3());
-        System.out.println("leadingP3Card: "+leadingP3Card);
-        System.out.println("Size: "+leadingP3Card.size());
-        // 
         ArrayList<String> leadingP4Card = player4.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP4());
-        System.out.println("leadingP4Card: "+leadingP4Card);
-        System.out.println("Size: "+leadingP4Card.size());
-        System.out.println();
+
+        ArrayList<String> center = new ArrayList<>();
+
+        center.add(deck1.getDeck().get(0));
+        deck1.setDeck(deck1.removeFromDeck(center));
+
+        int trick = 1;
+        System.out.println("Trick#"+trick);
 
         // Dealing Card to Player 1
         player1.dealCard(deck1.getDeck());
@@ -37,7 +33,7 @@ public class Main {
         System.out.println();
     
         deck1.setDeck(deck1.removeFromDeck(player1.playerCard));
-        System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
+      //   System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
         
         // Dealing Card to Player 2
         player2.dealCard(deck1.getDeck());
@@ -46,7 +42,7 @@ public class Main {
         System.out.println();
     
         deck1.setDeck(deck1.removeFromDeck(player2.playerCard));
-        System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
+      //   System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
     
         // Dealing Card to Player 3
         player3.dealCard(deck1.getDeck());
@@ -55,7 +51,7 @@ public class Main {
         System.out.println();
     
         deck1.setDeck(deck1.removeFromDeck(player3.playerCard));
-        System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
+      //   System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
 
         // Dealing Card to Player 4
         player4.dealCard(deck1.getDeck());
@@ -64,7 +60,14 @@ public class Main {
         System.out.println();
     
         deck1.setDeck(deck1.removeFromDeck(player4.playerCard));
-        System.out.println("Deck: \n"+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
+        
+        System.out.println("Center : "+center+ "\nSize: " + center.size() + "\n");
+
+        System.out.println("Deck   : "+deck1.getDeck()+"\nSize: "+deck1.getDeckSize()+"\n");
+
+        System.out.println("Score  : "+"Player1 = "+player1.getScore()+" | Player2 = "+player2.getScore()+" | Player3 = "+player3.getScore()
+                           +" | Player4 = "+player4.getScore());
+
 
     
    }
