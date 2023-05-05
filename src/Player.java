@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Player {
     
@@ -12,41 +13,9 @@ public class Player {
         return score;
     }
 
-    private static String[] suitForPlayer = {"c", "d", "h", "s"};
-
-    public static String[] getSuitForPlayer() {
-        return suitForPlayer;
-    }
-
-    private static String[] rankP1 = { "A", "5", "9","K" };
-
-    public static String[] getRankP1() {
-        return rankP1;
-    }
-
-    private static String[] rankP2 = { "2", "6", "X"};
-
-    public static String[] getRankP2() {
-        return rankP2;
-    }
-
-    private static String[] rankP3 = { "3", "7", "j"};
-
-    public static String[] getRankP3() {
-        return rankP3;
-    }
-
-    private static String[] rankP4 = { "4", "8", "Q"};
-
-    public static String[] getRankP4() {
-        return rankP4;
-    }
-
-    // ArrayList for Each Player from the Deck
+    // Cards for Each Player from the Deck
     ArrayList<String> playerCard = new ArrayList<>();
 
-    // ArrayList for Each Player that determines the first player
-    ArrayList<String> leadingPlayerCard = new ArrayList<>();
 
     public void dealCard (ArrayList<String> deck) {
         
@@ -55,22 +24,43 @@ public class Player {
             playerCard.add(deck.get(i));
         } 
     }
+    
+    public static int startingPlayer(String center) {
 
-    public ArrayList<String> setLeadPlayerCard(String[] suit, String[] rank) {
+        ArrayList<String> startingCardP1 = new ArrayList<>(Arrays.asList("sA", "s5", "s9", "sK", "hA", "h5", "h9", "hK", "dA", "d5", 
+                                                                              "d9", "dK", "cA", "c5", "c9", "cK"));
+        ArrayList<String> startingCardP2 = new ArrayList<>(Arrays.asList("s2", "s6", "sX", "h2", "h6", "hX", "d2", "d6", "dX", "c2", "c6", "cX")); 
+        ArrayList<String> startingCardP3 = new ArrayList<>(Arrays.asList("s3", "s7", "sJ", "h3", "h7", "hJ", "d3", "d7", "dJ", "c3", "c7", "cJ"));
+        ArrayList<String> startingCardP4 = new ArrayList<>(Arrays.asList("s4", "s8", "sQ", "h4", "h8", "hQ", "d4", "d8", "dQ", "c4", "c8", "cQ"));
+         
+        int playerNum = 0;
+        while(true) {
 
-        ArrayList<String> leadPlayerCard = new ArrayList<>();
-
-        for (int i = 0; i < suit.length; i++) {
-
-            int tempIndex = 0;
-
-            for (int j = 0; j < rank.length; j++) {
-
-                String temp = (suit[i] + rank[j]);
-                leadPlayerCard.add(tempIndex, temp);
-                tempIndex++;
+            if (startingCardP1.contains(center)) {
+                // System.out.print("p1");
+                playerNum = 1;
+                break;
+            }
+            else if (startingCardP2.contains(center)) {
+                // System.out.print("p2");
+                playerNum = 2;
+                break;
+            }
+            else if (startingCardP3.contains(center)) {
+                // System.out.print("p3");
+                playerNum = 3;
+                break;
+            }
+            else if (startingCardP4.contains(center)) {
+                // System.out.print("p4");
+                playerNum = 4;
+                break;
+            }
+            else {
+                playerNum = -1;
+                break;
             }
         }
-        return leadPlayerCard;
+        return playerNum;
     }
 }

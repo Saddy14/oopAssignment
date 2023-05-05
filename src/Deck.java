@@ -5,19 +5,20 @@ public class Deck {
     
     public static String[] suit = { "c", "d", "h", "s" };
     public static String[] rank = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
-    public ArrayList<String> deck = new ArrayList<>();
+    //Scope package level
+    ArrayList<String> deck = new ArrayList<>();
+    //Scope package level
+    ArrayList<String> center = new ArrayList<>();
+
 
     public void generateDeck() {
 
         for (int i = 0; i < suit.length; i++) {
-    
-           int tempIndex = 0;
-    
+        
            for (int j = 0; j < rank.length; j++) {
 
                String temp = (suit[i] + rank[j]);
-               deck.add(tempIndex, temp);
-               tempIndex++;
+               deck.add(temp);
             }
         }
         // Check to see of deck is correctly working
@@ -46,5 +47,6 @@ public class Deck {
         System.out.println("Deck Size: "+ deck.size());
         System.out.println();
     }
+    
 
 }

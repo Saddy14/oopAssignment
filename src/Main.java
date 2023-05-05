@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
 public class Main {
    public static void main(String[] args) {
@@ -13,62 +13,49 @@ public class Main {
       Player player3 = new Player();
       Player player4 = new Player();
 
-      @SuppressWarnings("unused")
-      ArrayList<String> leadingP1Card = player1.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP1());
-
-      @SuppressWarnings("unused")
-      ArrayList<String> leadingP2Card = player2.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP2());
-
-      @SuppressWarnings("unused")
-      ArrayList<String> leadingP3Card = player3.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP3());
-      
-      @SuppressWarnings("unused")
-      ArrayList<String> leadingP4Card = player4.setLeadPlayerCard(Player.getSuitForPlayer(), Player.getRankP4());
-
-      Center center1 = new Center();
-
-      center1.center.add(deck1.deck.get(0));
-      deck1.deck.removeAll(center1.center);
+      // Adding 1st card from the deck to the center
+      deck1.center.add(deck1.deck.get(0));
+      deck1.deck.removeAll(deck1.center);
       System.out.println("\n Removed the center from the Deck: "+deck1.deck);
       System.out.println();
+
+      // Determining the First Player..
+      int startPlayer = Player.startingPlayer(deck1.center.get(0));
+      System.out.println("\nThe First Player is: "+startPlayer);
 
       int trick = 1;
       System.out.println("Trick#" + trick);
 
       // Dealing Card to Player 1
       player1.dealCard(deck1.deck);
-      System.out.println("Player1: " + player1.playerCard);
-      System.out.println("Size: " + player1.playerCard.size());
+      System.out.println("Player1: " + player1.playerCard+"\n"+"Size: " + player1.playerCard.size());
 
       deck1.deck.removeAll(player1.playerCard);
       System.out.println("\nDeck: "+deck1.deck);
 
       // Dealing Card to Player 2
       player2.dealCard(deck1.deck);
-      System.out.println("Player2: " + player2.playerCard);
-      System.out.println("Size: " + player2.playerCard.size());
+      System.out.println("Player2: " + player2.playerCard+"\n"+"Size: " + player2.playerCard.size());
 
       deck1.deck.removeAll(player2.playerCard);
       System.out.println("\nDeck: "+deck1.deck);
 
       // Dealing Card to Player 3
       player3.dealCard(deck1.deck);
-      System.out.println("Player3: " + player3.playerCard);
-      System.out.println("Size: " + player3.playerCard.size());
+      System.out.println("Player3: " + player3.playerCard+"\n"+"Size: " + player3.playerCard.size());
 
       deck1.deck.removeAll(player3.playerCard);
       System.out.println("\nDeck: "+deck1.deck);
 
       // Dealing Card to Player 4
       player4.dealCard(deck1.deck);
-      System.out.println("Player4: " + player4.playerCard);
-      System.out.println("Size: " + player4.playerCard.size());
+      System.out.println("Player4: " + player4.playerCard+"\n"+"Size: " + player4.playerCard.size());
 
       deck1.deck.removeAll(player4.playerCard);
       System.out.println("\nDeck: "+deck1.deck);
 
       // Print All stuff
-      System.out.println("Center : " + center1.center + "\nSize: " + center1.center.size() + "\n");
+      System.out.println("Center : " + deck1.center + "\nSize: " + deck1.center.size() + "\n");
 
       System.out.println("Deck   : " + deck1.deck + "\nSize: " + deck1.deck.size() + "\n");
 

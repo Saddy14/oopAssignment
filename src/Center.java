@@ -1,16 +1,15 @@
-import java.util.ArrayList;
+// import java.util.ArrayList;
 
-public class Center {
+// public class Center {
     
-    ArrayList<String> center = new ArrayList<>();
 
-    // // Method that remove's the card from the center 
-    // public ArrayList<String> removeFromCenter(ArrayList<String> playerCard) {
+//     // // Method that remove's the card from the center 
+//     // public ArrayList<String> removeFromCenter(ArrayList<String> playerCard) {
 
-    //     for (int i = 0; i < playerCard.size(); i++) {
+//     //     for (int i = 0; i < playerCard.size(); i++) {
 
-    //         center.remove(playerCard.get(i));
-    //     }
-    //     return center;
-    // }
-}
+//     //         center.remove(playerCard.get(i));
+//     //     }
+//     //     return center;
+//     // }
+// }
