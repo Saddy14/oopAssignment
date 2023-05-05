@@ -1,17 +1,21 @@
 // import java.util.ArrayList;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
    public static void main(String[] args) {
+
+      Scanner scanner = new Scanner(System.in);
 
       Deck deck1 = new Deck();
       deck1.generateDeck();
       deck1.makeDeckRandom();
-      System.out.println("\nDeck: "+ deck1.deck);
       
-      Player player1 = new Player();
-      Player player2 = new Player();
-      Player player3 = new Player();
-      Player player4 = new Player();
+      Player player1 = new Player("Player1");
+      Player player2 = new Player("Player2");
+      Player player3 = new Player("Player3");
+      Player player4 = new Player("Player4");
 
       // Adding 1st card from the deck to the center
       deck1.center.add(deck1.deck.get(0));
@@ -20,8 +24,8 @@ public class Main {
       System.out.println();
 
       // Determining the First Player..
-      int startPlayer = Player.startingPlayer(deck1.center.get(0));
-      System.out.println("\nThe First Player is: "+startPlayer);
+      int startingPlayerIndex = Player.startingPlayerIndex(deck1.center.get(0));
+      System.out.println("\nThe First Player is: "+ "Player"+(startingPlayerIndex + 1));
 
       int trick = 1;
       System.out.println("Trick#" + trick);
@@ -54,13 +58,86 @@ public class Main {
       deck1.deck.removeAll(player4.playerCard);
       System.out.println("\nDeck: "+deck1.deck);
 
-      // Print All stuff
-      System.out.println("Center : " + deck1.center + "\nSize: " + deck1.center.size() + "\n");
+      startGame(deck1, startingPlayerIndex, player1, player2, player3, player4);
 
-      System.out.println("Deck   : " + deck1.deck + "\nSize: " + deck1.deck.size() + "\n");
+      /* GAME LOGIC */
+      // ArrayList<Player> playerList = new ArrayList<>();
+      // playerList.add(player1);
+      // playerList.add(player2);
+      // playerList.add(player3);
+      // playerList.add(player4);
 
-      System.out.println("Score  : " + "Player1 = " + player1.getScore() + " | Player2 = " + player2.getScore() +
-            " | Player3 = " + player3.getScore() + " | Player4 = " + player4.getScore());
+      // int currentPlayerIndex = startingPlayerIndex;
+      // Boolean gameIsRuning = true;
+
+      // while (gameIsRuning) {
+
+      //    Player currentPlayer = playerList.get(currentPlayerIndex);
+      //    // currentPlayer.setScore(20);
+      //    // currentPlayer.addScore(5);
+      //    System.out.println("Current Player"+currentPlayer);
+      //    // TODO
+      //    // GameLogic Here
+
+         
+         
+         
+         
+         
+         
+         
+      //    // Print All stuff
+      //    System.out.println("Center : " + deck1.center + "\nSize: " + deck1.center.size() + "\n");
+      //    System.out.println("Deck   : " + deck1.deck + "\nSize: " + deck1.deck.size() + "\n");
+      //    System.out.println("Score  : " + "Player1 = " + player1.getScore() + " | Player2 = " + player2.getScore() +" | Player3 = " + player3.getScore() + " | Player4 = " + player4.getScore());
+      //    System.out.println("Turn   : " + playerList.get(currentPlayerIndex).getName());
+      //    System.out.print(">");
+   
+      //    currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
+      //    break;
+         
+      // }
+
+      // scanner.close();
+
+      
+
+      
+
+   }
+
+   private static void startGame (Deck deck1, int startingPlayerIndex, Player player1, Player player2, Player player3, Player player4) {
+
+      ArrayList<Player> playerList = new ArrayList<>();
+      playerList.add(player1);
+      playerList.add(player2);
+      playerList.add(player3);
+      playerList.add(player4);
+
+      int currentPlayerIndex = startingPlayerIndex;
+      Boolean gameIsRuning = true;
+
+      while (gameIsRuning) {
+
+         Player currentPlayer = playerList.get(currentPlayerIndex);
+         // currentPlayer.setScore(20);
+         // currentPlayer.addScore(5);
+         System.out.println("Current Player"+currentPlayer);
+         // TODO
+         // GameLogic Here
+         
+         
+         // Print All stuff
+         System.out.println("Center : " + deck1.center + "\nSize: " + deck1.center.size() + "\n");
+         System.out.println("Deck   : " + deck1.deck + "\nSize: " + deck1.deck.size() + "\n");
+         System.out.println("Score  : " + "Player1 = " + player1.getScore() + " | Player2 = " + player2.getScore() +" | Player3 = " + player3.getScore() + " | Player4 = " + player4.getScore());
+         System.out.println("Turn   : " + playerList.get(currentPlayerIndex).getName());
+         System.out.print(">");
+   
+         currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
+         break;
+         
+      }
 
    }
 }
