@@ -3,8 +3,8 @@ import java.util.Random;
 
 public class Deck {
     
-    public static String[] suit = { "c", "d", "h", "s" };
-    public static String[] rank = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
+    private static String[] suit = { "c", "d", "h", "s" };
+    private static String[] rank = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
     //Scope package level
     ArrayList<String> deck = new ArrayList<>();
     //Scope package level
@@ -47,6 +47,21 @@ public class Deck {
         System.out.println("Deck Size: "+ deck.size());
         System.out.println();
     }
-    
 
+    // TODO Remove this method after testing
+    public void InputCardCheck (String userInput) {
+
+        if (userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1)) ) {
+
+            System.out.println("Valid Card");
+        }
+        else {
+            System.out.println("Invalid Card from Deck Class");
+        }
+
+        this.center.add(userInput);
+        
+        
+    }
 }
+

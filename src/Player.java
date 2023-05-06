@@ -82,4 +82,15 @@ public class Player {
         }
         return playerNum;
     }
+
+    // TODO Remove this method after testing
+    public static void checkPlayerhasCard (String userInput, ArrayList<String> playerCard) {
+
+       if(playerCard.contains(userInput)) {
+        System.out.println("You have a " + userInput + " card");
+       }
+       else {
+        System.out.println("You do not have a " + userInput + " card");
+       }
+    }
 }
