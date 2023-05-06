@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
 
 public class Deck {
     
@@ -49,18 +51,25 @@ public class Deck {
     }
 
     // TODO Remove this method after testing
-    public void InputCardCheck (String userInput) {
+    public String InputCardCheck (String userInput) {
+
+        Scanner scanner = new Scanner(System.in);
+        String temp = null;
 
         if (userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1)) ) {
 
             System.out.println("Valid Card");
+            temp = userInput;
         }
         else {
             System.out.println("Invalid Card from Deck Class");
+            System.out.print(">");
+            userInput = scanner.nextLine();
+            temp = userInput;
         }
 
         this.center.add(userInput);
-        
+        return temp;        
         
     }
 }

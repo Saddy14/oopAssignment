@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
+
 
 public class Player {
     
@@ -84,13 +86,26 @@ public class Player {
     }
 
     // TODO Remove this method after testing
-    public static void checkPlayerhasCard (String userInput, ArrayList<String> playerCard) {
+    public static String checkPlayerhasCard (String userInput, ArrayList<String> playerCard) {
 
-       if(playerCard.contains(userInput)) {
-        System.out.println("You have a " + userInput + " card");
-       }
-       else {
-        System.out.println("You do not have a " + userInput + " card");
-       }
+        Scanner scanner = new Scanner(System.in);
+        String temp = null;
+
+        if (playerCard.contains(userInput)) {
+
+            System.out.println("You have a " + userInput + " card");
+            temp = userInput;
+        }
+
+        else {
+
+            System.out.println("You do not have a " + userInput + " card");
+            System.out.print(">");
+            temp = scanner.nextLine();
+        }
+        return temp;
+       
+
+
     }
 }

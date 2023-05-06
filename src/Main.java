@@ -85,30 +85,30 @@ public class Main {
             break;
          }
 
-         // Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);
-         if (!currentPlayer.playerCard.contains(userInput)) {
+         userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);
+         // if (!currentPlayer.playerCard.contains(userInput)) {
 
-            System.out.println("You do not have a " + userInput + " card");
-            System.out.print(">");
-            userInput = scanner.nextLine();
-         }
-         else {
-            System.out.println("You have a " + userInput + " card");
-         }
+         //    System.out.println("You do not have a " + userInput + " card");
+         //    System.out.print(">");
+         //    userInput = scanner.nextLine();
+         // }
+         // else {
+         //    System.out.println("You have a " + userInput + " card");
+         // }
          
-         // deck1.InputCardCheck(userInput);
+         userInput = deck1.InputCardCheck(userInput);
 
-         if ((userInput.charAt(0) != deck1.center.get(0).charAt(0)) && (userInput.charAt(1) != deck1.center.get(0).charAt(1))) {
+         // if ((userInput.charAt(0) != deck1.center.get(0).charAt(0)) && (userInput.charAt(1) != deck1.center.get(0).charAt(1))) {
 
-            System.out.println("Invalid Card from Main Function");
-            System.out.print(">");
-            userInput = scanner.nextLine();
+         //    System.out.println("Invalid Card from Main Function");
+         //    System.out.print(">");
+         //    userInput = scanner.nextLine();
 
-         }
-         else {
-            System.out.println("Valid Card from Main Function");
-            deck1.center.add(userInput);
-         }
+         // }
+         // else {
+         //    System.out.println("Valid Card from Main Function");
+         //    deck1.center.add(userInput);
+         // }
             
 
          currentPlayer.playerCard.remove(userInput);
