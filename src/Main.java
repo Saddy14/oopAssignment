@@ -24,19 +24,19 @@ public class Main {
       System.out.println("\nThe First Player is: "+ "Player"+(startingPlayerIndex + 1));
 
       // Dealing Card to Player 1
-      player1.dealCard(deck1.deck);
+      player1.dealCard(deck1);
       deck1.deck.removeAll(player1.playerCard);
 
       // Dealing Card to Player 2
-      player2.dealCard(deck1.deck);
+      player2.dealCard(deck1);
       deck1.deck.removeAll(player2.playerCard);
 
       // Dealing Card to Player 3
-      player3.dealCard(deck1.deck);
+      player3.dealCard(deck1);
       deck1.deck.removeAll(player3.playerCard);
 
       // Dealing Card to Player 4
-      player4.dealCard(deck1.deck);
+      player4.dealCard(deck1);
       deck1.deck.removeAll(player4.playerCard);
 
       // Start the Game
@@ -65,8 +65,7 @@ public class Main {
 
          Player currentPlayer = playerList.get(currentPlayerIndex);
 
-         // TODO
-         // GameLogic Here
+         // TODO GameLogic Here
          
          // Print All stuff
          System.out.println("Trick#" + trick);
@@ -84,40 +83,22 @@ public class Main {
          if (userInput.equals("q")) {
             break;
          }
-
-         userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);
-         // if (!currentPlayer.playerCard.contains(userInput)) {
-
-         //    System.out.println("You do not have a " + userInput + " card");
-         //    System.out.print(">");
-         //    userInput = scanner.nextLine();
-         // }
-         // else {
-         //    System.out.println("You have a " + userInput + " card");
-         // }
+         // TODO Needed for Part 2
+         // userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);
          
          userInput = deck1.InputCardCheck(userInput);
-
-         // if ((userInput.charAt(0) != deck1.center.get(0).charAt(0)) && (userInput.charAt(1) != deck1.center.get(0).charAt(1))) {
-
-         //    System.out.println("Invalid Card from Main Function");
-         //    System.out.print(">");
-         //    userInput = scanner.nextLine();
-
-         // }
-         // else {
-         //    System.out.println("Valid Card from Main Function");
-         //    deck1.center.add(userInput);
-         // }
-            
+         
+         Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex);
 
          currentPlayer.playerCard.remove(userInput);
          
-   
+
          currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
          tempRoundCounter++;
 
-         if (tempRoundCounter%4 == 0) {
+         if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
+            // Player.trickWinnerPlayerIndex.removeAll(Player.trickWinnerPlayerIndex);
+            // Player.trickWinnerPlayerCard.removeAll(Player.trickWinnerPlayerCard);
             trick++;
          }
 
