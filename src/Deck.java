@@ -56,6 +56,11 @@ public class Deck {
         Scanner scanner = new Scanner(System.in);
         String temp = null;
 
+        if(this.center.isEmpty()) {
+
+            this.center.add(userInput);
+        } 
+
         if (userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1)) ) {
 
             System.out.println("Valid Card");
@@ -68,7 +73,13 @@ public class Deck {
             temp = userInput;
         }
 
-        this.center.add(userInput);
+        if (center.get(0).equals(temp)) {
+            
+        }
+        else {
+            this.center.add(userInput);
+        }
+        
         return temp;        
         
     }

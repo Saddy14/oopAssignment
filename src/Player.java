@@ -5,11 +5,12 @@ import java.util.Scanner;
 public class Player {
 
     private String name;
-    private static int noOfCardsEachPlayer = 7;
     private int score = 0;
-
+    
+    private static final int NO_OF_CARD_EACH_PLAYER = 7;
     @SuppressWarnings("unused")
-    private static int noOfPlayer = 4;
+    private static final int NO_OF_PLAYER = 4;
+
     // Cards for Each Player from the Deck
     ArrayList<String> playerCard = new ArrayList<>();
 
@@ -40,18 +41,24 @@ public class Player {
         return score;
     }
 
+    public static int getNoOfCardsEachPlayer() {
+        return NO_OF_CARD_EACH_PLAYER;
+    }
+
     public void dealCard(Deck deck1) {
 
-        for (int i = 0; i < noOfCardsEachPlayer; i++) {
-
+        for (int i = 0; i < 1; i++) {
+                
             playerCard.add(deck1.deck.get(i));
+            deck1.deck.removeAll(playerCard);
         }
     }
 
+
     public static int startingPlayerIndex(String center) {
 
+        // Cards that determine who will be the Starting Player
         ArrayList<String> startingCardP1 = new ArrayList<>(Arrays.asList("sA", "s5", "s9", "sK", "hA", "h5", "h9", "hK", "dA", "d5", "d9", "dK", "cA", "c5", "c9", "cK"));
-
         ArrayList<String> startingCardP2 = new ArrayList<>(Arrays.asList("s2", "s6", "sX", "h2", "h6", "hX", "d2", "d6", "dX", "c2", "c6", "cX"));
         ArrayList<String> startingCardP3 = new ArrayList<>(Arrays.asList("s3", "s7", "sJ", "h3", "h7", "hJ", "d3", "d7", "dJ", "c3", "c7", "cJ"));
         ArrayList<String> startingCardP4 = new ArrayList<>(Arrays.asList("s4", "s8", "sQ", "h4", "h8", "hQ", "d4", "d8", "dQ", "c4", "c8", "cQ"));
@@ -203,6 +210,7 @@ public class Player {
 
             trickWinnerPlayerIndex.removeAll(trickWinnerPlayerIndex);
             trickWinnerPlayerCard.removeAll(trickWinnerPlayerCard);
+            deck1.center.removeAll(deck1.center);
         }
         
 
