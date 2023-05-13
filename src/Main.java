@@ -18,7 +18,7 @@ public class Main {
       // Adding 1st card from the Deck to the center
       deck1.center.add(deck1.deck.get(0));
       deck1.deck.removeAll(deck1.center);
-      System.out.println("Removed the center from the Deck\n" + deck1.deck + "Size: "+deck1.deck.size());
+      System.out.println("\nRemoved the center from the Deck\n" + deck1.deck + "\nSize: "+deck1.deck.size());
 
       // Determining the First Player..
       int startingPlayerIndex = Player.startingPlayerIndex(deck1.center.get(0));
@@ -51,15 +51,14 @@ public class Main {
 
       int trick = 1;
       int tempRoundCounter = 0;
-
       int currentPlayerIndex = startingPlayerIndex;
+      
+      @SuppressWarnings("unused")
       Boolean gameIsRuning = true;
 
-      while (gameIsRuning) {
+      while (true) {
 
          Player currentPlayer = playerList.get(currentPlayerIndex);
-
-         // TODO GameLogic Here
          
          // Print All stuff
          System.out.println("Trick#" + trick);
@@ -69,29 +68,34 @@ public class Main {
          System.out.println("Player4: " + playerList.get(3).playerCard+"\n"+"Size: " + playerList.get(3).playerCard.size());
          System.out.println("Center : " + deck1.center + "\nSize: " + deck1.center.size() + "\n");
          System.out.println("Deck   : " + deck1.deck + "\nSize: " + deck1.deck.size() + "\n");
-         System.out.println("Score  : " + "Player1 = " + playerList.get(0).getScore() + " | Player2 = " + playerList.get(1).getScore() +" | Player3 = " + playerList.get(2).getScore() + " | Player4 = " + playerList.get(3).getScore());
-         System.out.println("Turn   : " + playerList.get(currentPlayerIndex).getName());
+         System.out.println("Score: " + "Player1 = " + playerList.get(0).getScore() + " | Player2 = " + playerList.get(1).getScore() +" | Player3 = " + playerList.get(2).getScore() + " | Player4 = " + playerList.get(3).getScore());
+         System.out.println("Turn : " + playerList.get(currentPlayerIndex).getName());
          System.out.print(">");
          String userInput = scanner.nextLine();
 
+         // break out of the loop
          if (userInput.equals("q")) {
             break;
          }
-         // TODO Needed for Part 2
-         // userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);
+
+         // TODO Extra Feature Don't remove yet...
+         // userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);      
          
+         // Check Suit/Rank matches the center 
          userInput = deck1.InputCardCheck(userInput);
 
-         Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex);
-
+         // Getting the Winner Player Index after 1 trick is over 
+         int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
          currentPlayer.playerCard.remove(userInput);
-         
 
-         currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
          tempRoundCounter++;
 
          if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
             trick++;
+            currentPlayerIndex = winnerPlayer;
+         }
+         else {
+            currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
          }
 
       }

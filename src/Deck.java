@@ -23,10 +23,8 @@ public class Deck {
                deck.add(temp);
             }
         }
-        // Check to see of deck is correctly working
-        System.out.println("Before Suffle");
-        System.out.println(deck);
-        System.out.println("Deck Size: "+deck.size());
+        // Check to see if deck is correctly working
+        System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     public void makeDeckRandom() {
@@ -42,12 +40,8 @@ public class Deck {
            deck.set(randomIndex, temp );
         }
         
-        // Check to see of deck is correctly working
-        System.out.println();
-        System.out.println("After Suffle");
-        System.out.println(deck);
-        System.out.println("Deck Size: "+ deck.size());
-        System.out.println();
+        // Check to see if deck is correctly working
+        System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // TODO Remove this method after testing
