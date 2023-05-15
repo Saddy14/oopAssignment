@@ -13,7 +13,7 @@ public class Deck {
     //Scope package level
     ArrayList<String> center = new ArrayList<>();
 
-    private String tempInputCardCheck = null;
+    // private String tempInputCardCheck = null;
 
 
     // Generate Deck
@@ -52,21 +52,21 @@ public class Deck {
         if (userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1)) ) {
 
             System.out.println("Valid Card");
-            tempInputCardCheck = userInput;
+            // tempInputCardCheck = userInput;
         }
         else {
 
             System.out.println("Invalid Card from Deck Class");
             System.out.print(">");
-            tempInputCardCheck = scanner.nextLine();
-            InputCardCheck(tempInputCardCheck);
+            String tempInputCardCheck = scanner.nextLine();
+            userInput = InputCardCheck(tempInputCardCheck);
         }
 
-        if (!center.contains(tempInputCardCheck)) {
-            this.center.add(tempInputCardCheck);
+        if (!center.contains(userInput)) {
+            this.center.add(userInput);
         }
 
-        return tempInputCardCheck;        
+        return userInput;        
     }
 
     // Method Returning the Index of the Starting Player
