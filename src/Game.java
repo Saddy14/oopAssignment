@@ -44,6 +44,10 @@ public class Game {
         while (true) {
   
            Player currentPlayer = playerList.get(currentPlayerIndex);
+
+           if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
+            currentPlayer.addScore();
+          }
            
            // Print All stuff
             gameStats(playerList, currentPlayerIndex, trick);
@@ -52,19 +56,18 @@ public class Game {
             if (userInput.equals("s")) {
                 startGame();
             }
+
            // break out of the loop
             if (userInput.equals("x")) {
                 break;
             }
             if (userInput.equals("d")) {
-                // TODO method
                 deck1.dealCardFromDeck(currentPlayer);
                 gameStats(playerList, currentPlayerIndex, trick);
                 userInput = scanner.nextLine();
             }
             if (userInput.equals("card")) {
                 // TODO method
-                // userInput =
                 userInput = currentPlayer.cardPlayedbyCurrentPlayer(currentPlayer);
             }
   
@@ -90,6 +93,25 @@ public class Game {
   
         }
         scanner.close();
+
+    }
+
+    // Game Commands
+    private void command(String userInput) {
+
+        // if (userInput.equals("x")) {
+        //     break;
+        // }
+        // if (userInput.equals("d")) {
+        //     // TODO method
+        //     deck1.dealCardFromDeck(currentPlayer);
+        //     // gameStats(playerList, currentPlayerIndex, trick);
+        //     // userInput = scanner.nextLine();
+        // }
+        // if (userInput.equals("card")) {
+        //     // TODO method
+        //     userInput = currentPlayer.cardPlayedbyCurrentPlayer(currentPlayer);
+        // }
 
     }
 

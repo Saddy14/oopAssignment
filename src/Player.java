@@ -29,26 +29,67 @@ public class Player {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public void setScore(int score) {
-        this.score = score;
-    }
-    
-    public void addScore(int score) {
-        this.score += score;
-    }
 
     // Getters
     public String getName() {
         return name;
     }
-
+    
     public int getScore() {
         return score;
     }
-    
+        
     public static int getNoOfCardsEachPlayer() {
         return NO_OF_CARD_EACH_PLAYER;
+    }
+    
+    // TODO Adding score to the Winning Player
+    public void addScore() {
+
+        for (String card : playerCard) {
+            
+            char rank = card.charAt(1);
+            switch (rank) {
+                case 'A':
+                    this.score += 1;
+                    break;
+                case '2':
+                    this.score += 2;
+                    break;
+                case '3':
+                    this.score += 3;
+                    break;
+                case '4':
+                    this.score += 4;
+                    break;
+                case '5':
+                    this.score += 5;
+                    break;
+                case '6':
+                    this.score += 6;
+                    break;
+                case '7':
+                    this.score += 7;
+                    break;
+                case '8':
+                    this.score += 8;
+                    break;
+                case '9':
+                    this.score += 9;
+                    break;
+                case 'X':
+                    this.score += 10;
+                    break;
+                case 'J','Q','K':
+                    this.score += 10;
+                    break;
+            
+                default:
+                    this.score += 0;
+                    break;
+            }
+        }
+        
     }
 
     // Deal 1 Card to a Player
@@ -60,7 +101,6 @@ public class Player {
             deck1.deck.removeAll(playerCard);
         }
     }
-
 
     // TODO Extra Feature Don't remove yet... Method to Check If player has the card he played 
     public static String checkPlayerhasCard(String userInput, ArrayList<String> playerCard) {
@@ -85,7 +125,7 @@ public class Player {
 
     }
 
-    // A Random Card Played by the player
+    // TODO A Random Card Played by the player
     public String cardPlayedbyCurrentPlayer(Player player) {
 
         Random random = new Random();

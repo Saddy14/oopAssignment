@@ -35,7 +35,7 @@ public class Deck {
     public void makeDeckRandom() {
 
         Collections.shuffle(deck);
-        
+
         // Check to see if deck is correctly working
         System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
@@ -109,7 +109,7 @@ public class Deck {
         return playerNum;
     }
 
-    // Method to Deal a card to player from ther deck
+    // TODO Method to Deal a card to player from ther deck
     public void dealCardFromDeck(Player player) {
 
         
@@ -122,8 +122,8 @@ public class Deck {
                 break;
             }
 
-            System.out.println("Center : " + center + "\nSize: " + center.size() + "\n");
-            System.out.println("Deck   : " + deck + "\nSize: " + deck.size() + "\n");
+            // System.out.println("Center : " + center + "\nSize: " + center.size() + "\n");
+            // System.out.println("Deck   : " + deck + "\nSize: " + deck.size() + "\n");
         }
         
     }
