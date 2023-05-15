@@ -72,7 +72,7 @@ public class Game {
             }
   
            // TODO Extra Feature Don't remove yet...
-           // userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);      
+            userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);      
            
            // Check Suit/Rank matches the center 
             userInput = deck1.InputCardCheck(userInput);

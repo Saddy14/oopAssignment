@@ -108,20 +108,15 @@ public class Player {
         Scanner scanner = new Scanner(System.in);
         String temp = null;
 
-        if (playerCard.contains(userInput)) {
-
-            System.out.println("You have a " + userInput + " card");
-            temp = userInput;
-        }
-
-        else {
+        if (!playerCard.contains(userInput)) {
 
             System.out.println("You do not have a " + userInput + " card");
             System.out.print(">");
             temp = scanner.nextLine();
-            // checkPlayerhasCard(temp, playerCard);
+            userInput = checkPlayerhasCard(temp, playerCard);
         }
-        return temp;
+        
+        return userInput;
 
     }
 
