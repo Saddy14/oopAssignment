@@ -9,12 +9,24 @@ public class Deck {
     private static String[] suit = { "c", "d", "h", "s" };
     private static String[] rank = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
     //Scope package level
-    ArrayList<String> deck = new ArrayList<>();
+    private ArrayList<String> deck = new ArrayList<>();
+    public ArrayList<String> getDeck() {
+        return deck;
+    }
+
     //Scope package level
-    ArrayList<String> center = new ArrayList<>();
+    private ArrayList<String> center = new ArrayList<>();
 
     // private String tempInputCardCheck = null;
 
+
+    public ArrayList<String> getCenter() {
+        return center;
+    }
+
+    public void setCenter(ArrayList<String> center) {
+        this.center = center;
+    }
 
     // Generate Deck
     public void generateDeck() {
@@ -117,7 +129,7 @@ public class Deck {
             
             if (deck.get(i).charAt(0) == (this.center.get(0).charAt(0)) || deck.get(i).charAt(1) == (this.center.get(0).charAt(1))) {
 
-                player.playerCard.add(deck.get(i));
+                player.getPlayerCard().add(deck.get(i));
                 deck.remove(i);
                 break;
             }

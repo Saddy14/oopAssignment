@@ -20,13 +20,13 @@ public class Game {
         playerList.add(new Player("Player4"));
 
         // Adding a Card to the Center
-        deck1.center.add(deck1.deck.get(0));
-        deck1.deck.removeAll(deck1.center);
-        System.out.println("\nRemoved the center from the Deck\n" + deck1.deck + "\nSize: " + deck1.deck.size());
-        System.out.println("\nCenter: " + deck1.center);
+        deck1.getCenter().add(deck1.getDeck().get(0));
+        deck1.getDeck().removeAll(deck1.getCenter());
+        System.out.println("\nRemoved the center from the Deck\n" + deck1.getDeck() + "\nSize: " + deck1.getDeck().size());
+        System.out.println("\nCenter: " + deck1.getCenter());
 
         // Determining the First Player..
-        int startingPlayerIndex = Deck.startingPlayerIndex(deck1.center.get(0));
+        int startingPlayerIndex = Deck.startingPlayerIndex(deck1.getCenter().get(0));
         System.out.println("\nThe First Player is: " + "Player" + (startingPlayerIndex + 1) + "\n");
 
         // Add Card to Each Player
@@ -72,14 +72,14 @@ public class Game {
             }
   
            // TODO Extra Feature Don't remove yet...
-            userInput = Player.checkPlayerhasCard(userInput, currentPlayer.playerCard);      
+            userInput = Player.checkPlayerhasCard(userInput, currentPlayer.getPlayerCard());      
            
            // Check Suit/Rank matches the center 
             userInput = deck1.InputCardCheck(userInput);
   
            // Getting the Winner Player Index after 1 trick is over 
             int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
-            currentPlayer.playerCard.remove(userInput);
+            currentPlayer.getPlayerCard().remove(userInput);
   
             tempRoundCounter++;
   
@@ -133,12 +133,12 @@ public class Game {
     private void gameStats(ArrayList<Player> playerList, int currentPlayerIndex, int trick) {
 
         System.out.println("Trick#" + trick);
-        System.out.println("Player1: " + playerList.get(0).playerCard+"\n"+"Size: " + playerList.get(0).playerCard.size());
-        System.out.println("Player2: " + playerList.get(1).playerCard+"\n"+"Size: " + playerList.get(1).playerCard.size());
-        System.out.println("Player3: " + playerList.get(2).playerCard+"\n"+"Size: " + playerList.get(2).playerCard.size());
-        System.out.println("Player4: " + playerList.get(3).playerCard+"\n"+"Size: " + playerList.get(3).playerCard.size());
-        System.out.println("Center : " + deck1.center + "\nSize: " + deck1.center.size() + "\n");
-        System.out.println("Deck   : " + deck1.deck + "\nSize: " + deck1.deck.size() + "\n");
+        System.out.println("Player1: " + playerList.get(0).getPlayerCard()+"\n"+"Size: " + playerList.get(0).getPlayerCard().size());
+        System.out.println("Player2: " + playerList.get(1).getPlayerCard()+"\n"+"Size: " + playerList.get(1).getPlayerCard().size());
+        System.out.println("Player3: " + playerList.get(2).getPlayerCard()+"\n"+"Size: " + playerList.get(2).getPlayerCard().size());
+        System.out.println("Player4: " + playerList.get(3).getPlayerCard()+"\n"+"Size: " + playerList.get(3).getPlayerCard().size());
+        System.out.println("Center : " + deck1.getCenter() + "\nSize: " + deck1.getCenter().size() + "\n");
+        System.out.println("Deck   : " + deck1.getDeck() + "\nSize: " + deck1.getDeck().size() + "\n");
         System.out.println("Score: " + "Player1 = " + playerList.get(0).getScore() + " | Player2 = " + playerList.get(1).getScore() +" | Player3 = " + playerList.get(2).getScore() + " | Player4 = " + playerList.get(3).getScore());
         System.out.println("Turn : " + playerList.get(currentPlayerIndex).getName());
         System.out.print(">");

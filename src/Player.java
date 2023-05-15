@@ -14,7 +14,11 @@ public class Player {
     private static final int NO_OF_PLAYER = 4;
 
     // Cards for Each Player from the Deck
-    ArrayList<String> playerCard = new ArrayList<>();
+    private ArrayList<String> playerCard = new ArrayList<>();
+
+    public ArrayList<String> getPlayerCard() {
+        return playerCard;
+    }
 
     // Store PlayerCard & Index to determine the Winner
     private static ArrayList<String> trickWinnerPlayerCard = new ArrayList<>();
@@ -97,8 +101,8 @@ public class Player {
 
         for (int i = 0; i < 1; i++) {
                 
-            playerCard.add(deck1.deck.get(i));
-            deck1.deck.removeAll(playerCard);
+            playerCard.add(deck1.getDeck().get(i));
+            deck1.getDeck().removeAll(playerCard);
         }
     }
 
@@ -137,7 +141,7 @@ public class Player {
         int temp = 0;
         tempCount++;        
 
-        if (deck1.center.get(0).charAt(0) == userInput.charAt(0)) {
+        if (deck1.getCenter().get(0).charAt(0) == userInput.charAt(0)) {
 
             trickWinnerPlayerIndex.add(currentPlayerIndex);
             trickWinnerPlayerCard.add(userInput);
@@ -257,7 +261,7 @@ public class Player {
 
             trickWinnerPlayerIndex.removeAll(trickWinnerPlayerIndex);
             trickWinnerPlayerCard.removeAll(trickWinnerPlayerCard);
-            deck1.center.removeAll(deck1.center);
+            deck1.getCenter().removeAll(deck1.getCenter());
         }
         return temp;
     }
