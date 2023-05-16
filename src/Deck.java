@@ -3,29 +3,22 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Scanner;
 
-
 public class Deck {
     
+    // Arrays for suit & rank
     private static String[] suit = { "c", "d", "h", "s" };
     private static String[] rank = { "A", "2", "3", "4", "5", "6", "7", "8", "9", "X", "J", "Q", "K" };
-    //Scope package level
+    // ArrayList where the deck & center is stored
     private ArrayList<String> deck = new ArrayList<>();
+    private ArrayList<String> center = new ArrayList<>();
+
+    // Getters
     public ArrayList<String> getDeck() {
         return deck;
     }
 
-    //Scope package level
-    private ArrayList<String> center = new ArrayList<>();
-
-    // private String tempInputCardCheck = null;
-
-
     public ArrayList<String> getCenter() {
         return center;
-    }
-
-    public void setCenter(ArrayList<String> center) {
-        this.center = center;
     }
 
     // Generate Deck
@@ -40,7 +33,7 @@ public class Deck {
             }
         }
         // Check to see if deck is correctly working
-        System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        // System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Shuffling the Deck
@@ -57,27 +50,24 @@ public class Deck {
 
         Scanner scanner = new Scanner(System.in);
 
+        // Needed from start of Trick#2 & so on..
         if(this.center.isEmpty()) {
             this.center.add(userInput);
         } 
 
-        if (userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1)) ) {
+        // Check Suit/Rank matches the center
+        if (!(userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1))) ) {
 
-            System.out.println("Valid Card");
-            // tempInputCardCheck = userInput;
-        }
-        else {
-
-            System.out.println("Invalid Card from Deck Class");
+            System.out.println("Suit/Rank does not match");
             System.out.print(">");
             String tempInputCardCheck = scanner.nextLine();
             userInput = InputCardCheck(tempInputCardCheck);
         }
 
+        // Condition req. to avoid duplicate for start of Trick#2 & so on..
         if (!center.contains(userInput)) {
             this.center.add(userInput);
         }
-
         return userInput;        
     }
 
@@ -94,22 +84,18 @@ public class Deck {
         while (true) {
     
             if (startingCardP1.contains(center)) {
-                // System.out.print("p1");
                 playerNum = 0;
                 break;
             } 
             else if (startingCardP2.contains(center)) {
-                // System.out.print("p2");
                 playerNum = 1;
                 break;
             } 
             else if (startingCardP3.contains(center)) {
-                // System.out.print("p3");
                 playerNum = 2;
                 break;
             } 
             else if (startingCardP4.contains(center)) {
-                // System.out.print("p4");
                 playerNum = 3;
                 break;
             } 
@@ -121,9 +107,8 @@ public class Deck {
         return playerNum;
     }
 
-    // TODO Method to Deal a card to player from ther deck
+    // TODO Method to Deal a card to player from their deck
     public void dealCardFromDeck(Player player) {
-
         
         for (int i = 0; i < deck.size(); i++) {
             
@@ -133,12 +118,16 @@ public class Deck {
                 deck.remove(i);
                 break;
             }
-
-            // System.out.println("Center : " + center + "\nSize: " + center.size() + "\n");
-            // System.out.println("Deck   : " + deck + "\nSize: " + deck.size() + "\n");
         }
-        
     }
-    
+
+    // Add Card to the center from the deck
+    public void addCardToCenter() {
+
+        getCenter().add(getDeck().get(0));
+        getDeck().removeAll(getCenter());
+        // System.out.println("\nRemoved the center from the Deck\n" + getDeck() + "\nSize: " + getDeck().size());
+        // System.out.println("\nCenter: " + getCenter());
+    }
 }
 
