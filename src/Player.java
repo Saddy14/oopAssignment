@@ -113,14 +113,21 @@ public class Player {
     }
 
     // TODO A Random Card Played by the player
-    public String cardPlayedbyCurrentPlayer() {
+    public String cardPlayedbyCurrentPlayer(ArrayList<String> c) {
 
-        Random random = new Random();
-        int r = random.nextInt(playerCard.size());
-        String card = playerCard.get(r);
-        System.out.println("Card: " + card);
-        return card;
-
+        for (String card : playerCard) {
+            
+            if(c.isEmpty()) {
+                c.add(card);
+            }
+            
+            if (card.charAt(0) == (c.get(0).charAt(0)) || card.charAt(1) == (c.get(0).charAt(1)) ) {
+                
+                System.out.println("Card Played: " + card);
+                return card;
+            }
+        }
+        return "";
     }
 
     // Method Returning the index of the Trick Winner

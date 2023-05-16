@@ -62,7 +62,7 @@ public class Game {
 
             else if (userInput.equals("card")) {
                 // TODO method
-                userInput = currentPlayer.cardPlayedbyCurrentPlayer();
+                userInput = currentPlayer.cardPlayedbyCurrentPlayer(deck1.getCenter());
             }
   
             // Check If player has the card he played
