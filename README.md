@@ -2,12 +2,12 @@
 
 ## A. Member Contributions
 
-No | ID         | Name | Task descriptions | Contribution %
--- | ---------- | ---- | ----------------- | --------------
-1  | ....id.... |      |                   |
-2  |            |      |                   |
-3  |            |      |                   |
-4  |            |      |                   |
+No | ID         |                    Name          | Task descriptions | Contribution %
+-- | ---------- |                    ----          | ----------------- | --------------
+1  | 1221301874 |SADMAN, ZULFIQUER                 | ✔️Feature# 7 & 8, change the code to make it more OOP focus (classes, objects & composition), debugging to fix bugs, refactoring code to make it more simpler & organized                 |        34%
+2  | 1211103085 |MUHAMMAD FARID BIN JAYATAN        | ✔️Feature# 5 & 6                  |        22%
+3  | 1211103222	|ASYRANI SYAZWAN BIN YUHANIS       | ✔️Feature# 3 & 4                 |        22%
+4  | 1211307169	|MUHAMMAD AMIN RAFIQ BIN ABU SUPIAN| ✔️Feature# 1 & 2                 |        22%
 
 
 ## B. Feature Completion
@@ -22,8 +22,8 @@ No | Feature                                                                    
 4  | The first lead card determines the first player.                                |        Y
 5  | Deal 7 cards to each of the 4 players.                                          |        Y
 6  | All players must follow the suit or rank of the lead card.                      |        Y
-7  | The highest-rank card with the same suit as the lead card wins the trick.       |
-8  | The winner of a trick leads the next card.                                      |
+7  | The highest-rank card with the same suit as the lead card wins the trick.       |        Y
+8  | The winner of a trick leads the next card.                                      |        Y
 
 
 ## C. Link to Video Presentation
