@@ -96,7 +96,7 @@ public class Player {
         }
     }
 
-    // TODO Extra Feature Don't remove yet... Method to Check If player has the card he played 
+    // Check If player has the card he played 
     public static String checkPlayerhasCard(String userInput, ArrayList<String> playerCard) {
 
         Scanner scanner = new Scanner(System.in);
@@ -139,12 +139,14 @@ public class Player {
 
             int winnerPlayerIndex = 0;
 
+            // Removing the Suit only
             for (int i = 0; i < trickWinnerPlayerCard.size(); i++) {
                 String card = trickWinnerPlayerCard.get(i);
                 card = card.substring(1);
                 trickWinnerPlayerCard.set(i, card);
             }
 
+            // Checking with the Rank and getting the playerIndex
             if (trickWinnerPlayerCard.indexOf("A") != -1) {
                 winnerPlayerIndex = trickWinnerPlayerIndex.get(trickWinnerPlayerCard.indexOf("A"));
                 temp = winnerPlayerIndex;

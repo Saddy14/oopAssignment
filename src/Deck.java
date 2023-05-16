@@ -42,7 +42,7 @@ public class Deck {
         Collections.shuffle(deck);
 
         // Check to see if deck is correctly working
-        System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        // System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Check Suit/Rank matches the center 
@@ -126,8 +126,6 @@ public class Deck {
 
         getCenter().add(getDeck().get(0));
         getDeck().removeAll(getCenter());
-        // System.out.println("\nRemoved the center from the Deck\n" + getDeck() + "\nSize: " + getDeck().size());
-        // System.out.println("\nCenter: " + getCenter());
     }
 }
 
