@@ -118,6 +118,10 @@ public class Deck {
                 deck.remove(i);
                 break;
             }
+            else {
+                player.getPlayerCard().add(deck.get(i));
+                deck.remove(i);
+            }
         }
     }
 
