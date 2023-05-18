@@ -33,6 +33,10 @@ public class Game {
         int trick = 1;
         int tempRoundCounter = 0;
         int currentPlayerIndex = startingPlayerIndex;
+
+        // Print All stuff
+        gameStats(playerList, currentPlayerIndex, trick);
+        String userInput = scanner.nextLine();
           
         while (true) {
   
@@ -42,16 +46,12 @@ public class Game {
                 currentPlayer.addScore();
             }
            
-            // Print All stuff
-            gameStats(playerList, currentPlayerIndex, trick);
-            String userInput = scanner.nextLine();
-  
-            if (userInput.equals("s")) {
-                startGame(); // start a new game
-            }
-
-            else if (userInput.equals("x")) {
+            if (userInput.equals("x")) {
                 break; // break out of the loop
+            }
+  
+            else if (userInput.equals("s")) {
+                startGame(); // start a new game
             }
 
             else if (userInput.equals("d")) {
@@ -64,26 +64,30 @@ public class Game {
                 // TODO method
                 userInput = currentPlayer.cardPlayedbyCurrentPlayer(deck1.getCenter());
             }
-  
-            // Check If player has the card he played
-            userInput = Player.checkPlayerhasCard(userInput, currentPlayer.getPlayerCard());      
-           
-            // Check Suit/Rank matches the center 
-            userInput = deck1.InputCardCheck(userInput);
-  
-            // Getting the Winner Player Index after 1 trick is over 
-            int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
-            currentPlayer.getPlayerCard().remove(userInput);
-  
-            tempRoundCounter++;
-  
-            if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
-              trick++;
-              currentPlayerIndex = winnerPlayer;
+            
+            if (currentPlayer.checkPlayerhasCard(userInput) && deck1.InputCardCheck(userInput)) {
+
+                // Getting the Winner Player Index after 1 trick is over 
+                int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
+                currentPlayer.getPlayerCard().remove(userInput);
+                  
+                tempRoundCounter++;
+                  
+                if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
+                  trick++;
+                  currentPlayerIndex = winnerPlayer;
+                }
+                else {
+                  currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
+                }
+
+                gameStats(playerList, currentPlayerIndex, trick);
+                userInput = scanner.nextLine();
             }
             else {
-              currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
+                userInput = scanner.nextLine();
             }
+
         }
         scanner.close();
     }

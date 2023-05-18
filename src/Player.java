@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Player {
 
@@ -96,18 +95,16 @@ public class Player {
     }
 
     // Check If player has the card he played 
-    public static String checkPlayerhasCard(String userInput, ArrayList<String> playerCard) {
+    public Boolean checkPlayerhasCard(String userInput) {
 
-        Scanner scanner = new Scanner(System.in);
+        Boolean passCheck = true;
 
         if (!playerCard.contains(userInput)) {
 
-            System.out.println("You do not have a " + userInput);
-            System.out.print(">");
-            String temp = scanner.nextLine();
-            userInput = checkPlayerhasCard(temp, playerCard);
+            System.out.print("You do not have a " + userInput + "\n>");            
+            passCheck = false;
         }
-        return userInput;
+        return passCheck;
         
     }
 
@@ -122,6 +119,10 @@ public class Player {
             
             if (card.charAt(0) == (c.get(0).charAt(0)) || card.charAt(1) == (c.get(0).charAt(1)) ) {
                 
+                System.out.println("Card Played: " + card);
+                return card;
+            }
+            else {
                 System.out.println("Card Played: " + card);
                 return card;
             }

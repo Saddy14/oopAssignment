@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Scanner;
 
 public class Deck {
     
@@ -46,9 +45,9 @@ public class Deck {
     }
 
     // Check Suit/Rank matches the center 
-    public String InputCardCheck (String userInput) {
+    public Boolean InputCardCheck (String userInput) {
 
-        Scanner scanner = new Scanner(System.in);
+        Boolean passCheck = true;
 
         // Needed from start of Trick#2 & so on..
         if(this.center.isEmpty()) {
@@ -58,17 +57,15 @@ public class Deck {
         // Check Suit/Rank matches the center
         if (!(userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1))) ) {
 
-            System.out.println("Suit/Rank does not match");
-            System.out.print(">");
-            String tempInputCardCheck = scanner.nextLine();
-            userInput = InputCardCheck(tempInputCardCheck);
+            System.out.print("Suit/Rank does not match\n>");
+            
+            passCheck = false;
         }
-
-        // Condition req. to avoid duplicate for start of Trick#2 & so on..
-        if (!center.contains(userInput)) {
+        else if (!center.contains(userInput)) {
             this.center.add(userInput);
         }
-        return userInput;        
+        
+        return passCheck;        
     }
 
     // Method Returning the Index of the Starting Player
