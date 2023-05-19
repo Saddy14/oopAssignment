@@ -101,7 +101,6 @@ public class Player {
 
         if (!playerCard.contains(userInput)) {
 
-            System.out.print("You do not have a " + userInput + "\n>");            
             passCheck = false;
         }
         return passCheck;

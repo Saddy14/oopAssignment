@@ -57,7 +57,6 @@ public class Game {
             else if (userInput.equals("d")) {
                 deck1.dealCardFromDeck(currentPlayer);
                 gameStats(playerList, currentPlayerIndex, trick);
-                userInput = scanner.nextLine();
             }
 
             else if (userInput.equals("card")) {
@@ -65,7 +64,7 @@ public class Game {
                 userInput = currentPlayer.cardPlayedbyCurrentPlayer(deck1.getCenter());
             }
             
-            if (currentPlayer.checkPlayerhasCard(userInput) && deck1.InputCardCheck(userInput)) {
+            if (currentPlayer.checkPlayerhasCard(userInput) && deck1.InputCardCheck(userInput) && userInput.length() == 2) {
 
                 // Getting the Winner Player Index after 1 trick is over 
                 int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
