@@ -57,7 +57,7 @@ public class Deck {
         // Check Suit/Rank matches the center
         if (!(userInput.charAt(0) == (this.center.get(0).charAt(0)) || userInput.charAt(1) == (this.center.get(0).charAt(1))) ) {
 
-            System.out.print("Suit/Rank does not match\n>");
+            System.out.println("Suit/Rank does not match");
             
             passCheck = false;
         }

@@ -100,7 +100,7 @@ public class Player {
         Boolean passCheck = true;
 
         if (!playerCard.contains(userInput)) {
-
+            System.out.println("You don't have: " + userInput);
             passCheck = false;
         }
         return passCheck;

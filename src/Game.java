@@ -52,6 +52,7 @@ public class Game {
   
             else if (userInput.equals("s")) {
                 startGame(); // start a new game
+                break;
             }
 
             else if (userInput.equals("d")) {
@@ -59,12 +60,12 @@ public class Game {
                 gameStats(playerList, currentPlayerIndex, trick);
             }
 
-            else if (userInput.equals("card")) {
-                // TODO method
-                userInput = currentPlayer.cardPlayedbyCurrentPlayer(deck1.getCenter());
-            }
+            // else if (userInput.equals("card")) {
+            //     // TODO method
+            //     userInput = currentPlayer.cardPlayedbyCurrentPlayer(deck1.getCenter());
+            // }
             
-            if (currentPlayer.checkPlayerhasCard(userInput) && deck1.InputCardCheck(userInput) && userInput.length() == 2) {
+            if (userInput.length() == 2 && (currentPlayer.checkPlayerhasCard(userInput) && deck1.InputCardCheck(userInput)) ) {
 
                 // Getting the Winner Player Index after 1 trick is over 
                 int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
@@ -84,6 +85,8 @@ public class Game {
                 userInput = scanner.nextLine();
             }
             else {
+                System.out.print(">");
+
                 userInput = scanner.nextLine();
             }
 
