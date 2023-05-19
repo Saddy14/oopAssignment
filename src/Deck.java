@@ -32,7 +32,7 @@ public class Deck {
             }
         }
         // Check to see if deck is correctly working
-        // System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Shuffling the Deck
@@ -41,7 +41,7 @@ public class Deck {
         Collections.shuffle(deck);
 
         // Check to see if deck is correctly working
-        // System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Check Suit/Rank matches the center 
