@@ -33,49 +33,59 @@ public class Game {
         int trick = 1;
         int tempRoundCounter = 0;
         int currentPlayerIndex = startingPlayerIndex;
+        int winnerPlayer;
 
         // Print All stuff
         gameStats(playerList, currentPlayerIndex, trick);
         String userInput = scanner.nextLine();
           
-        while (true) {
+        while (!userInput.equals("x")) {
   
            Player currentPlayer = playerList.get(currentPlayerIndex);
-
-           if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
-                currentPlayer.addScore();
-            }
-           
-            if (userInput.equals("x")) {
-                break; // break out of the loop
-            }
-  
-            else if (userInput.equals("s")) {
+ 
+            if (userInput.equals("s")) {
                 startGame(); // start a new game
                 break;
             }
 
             else if (userInput.equals("d")) {
-                deck1.dealCardFromDeck(currentPlayer);
-                gameStats(playerList, currentPlayerIndex, trick);
+
+                if(deck1.getDeck().isEmpty() && userInput.equals("d")) {
+
+                    currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
+                    tempRoundCounter++;
+                    winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
+                    
+                    if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
+                        trick++;
+                        currentPlayerIndex = winnerPlayer;
+                        currentPlayer = playerList.get(currentPlayerIndex);
+                        currentPlayer.addScore();
+                    }
+                    gameStats(playerList, currentPlayerIndex, trick);
+                }
+                else {
+                    
+                    deck1.dealCardFromDeck(currentPlayer); 
+                    gameStats(playerList, currentPlayerIndex, trick); 
+                }
             }
 
-            // else if (userInput.equals("card")) {
-            //     // TODO method
-            //     userInput = currentPlayer.cardPlayedbyCurrentPlayer(deck1.getCenter());
-            // }
-            
+            // Check If player has the card he played & Check Suit/Rank matches the center
             if (userInput.length() == 2 && (currentPlayer.checkPlayerhasCard(userInput) && deck1.InputCardCheck(userInput)) ) {
 
                 // Getting the Winner Player Index after 1 trick is over 
-                int winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
+                winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
                 currentPlayer.getPlayerCard().remove(userInput);
                   
                 tempRoundCounter++;
                   
                 if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
-                  trick++;
-                  currentPlayerIndex = winnerPlayer;
+
+                    trick++;
+                    currentPlayerIndex = winnerPlayer;
+                    currentPlayer = playerList.get(currentPlayerIndex);
+                    currentPlayer.addScore();
                 }
                 else {
                   currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
@@ -85,11 +95,10 @@ public class Game {
                 userInput = scanner.nextLine();
             }
             else {
-                System.out.print(">");
 
+                System.out.print(">");
                 userInput = scanner.nextLine();
             }
-
         }
         scanner.close();
     }
@@ -120,5 +129,5 @@ public class Game {
         System.out.println("Score: " + "Player1 = " + playerList.get(0).getScore() + " | Player2 = " + playerList.get(1).getScore() +" | Player3 = " + playerList.get(2).getScore() + " | Player4 = " + playerList.get(3).getScore());
         System.out.println("Turn : " + playerList.get(currentPlayerIndex).getName());
         System.out.print(">");
-    } 
+    }  
 }
