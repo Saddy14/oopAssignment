@@ -26,7 +26,7 @@ public class Game {
         int startingPlayerIndex = Deck.startingPlayerIndex(deck1.getCenter().get(0));
 
         // Add Card to Each Player
-        addCardToPlayer();
+        Player.addCardToPlayer(playerList, deck1);
 
         Scanner scanner = new Scanner(System.in);
   
@@ -48,14 +48,14 @@ public class Game {
                 break;
             }
 
-            else if (userInput.equals("d")) {
+            else if (userInput.equals("d")) { // game command 'd'
 
                 if(deck1.getDeck().isEmpty() && userInput.equals("d")) {
 
                     currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
                     tempRoundCounter++;
                     winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
-                    
+
                     if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
                         trick++;
                         currentPlayerIndex = winnerPlayer;
@@ -103,18 +103,7 @@ public class Game {
         scanner.close();
     }
 
-    // Add Cards to player
-    private void addCardToPlayer() {
-
-        // Dealing 1 Card at a time to each player from the deck
-        for (int i = 0; i < Player.getNoOfCardsEachPlayer(); i++) {
-
-            playerList.get(0).dealCard(deck1);
-            playerList.get(1).dealCard(deck1);
-            playerList.get(2).dealCard(deck1);
-            playerList.get(3).dealCard(deck1);
-        }
-    }
+    
     
     // Display Game Stats
     private void gameStats(ArrayList<Player> playerList, int currentPlayerIndex, int trick) {

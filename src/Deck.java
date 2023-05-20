@@ -25,14 +25,14 @@ public class Deck {
 
         for (int i = 0; i < suit.length; i++) {
         
-           for (int j = 0; j < rank.length; j++) {
+           for (int j = 0; j < rank.length; j++) { 
 
                String temp = (suit[i] + rank[j]);
                deck.add(temp);
             }
         }
         // Check to see if deck is correctly working
-        System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        // System.out.println("Before Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Shuffling the Deck
@@ -41,7 +41,7 @@ public class Deck {
         Collections.shuffle(deck);
 
         // Check to see if deck is correctly working
-        System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        // System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Check Suit/Rank matches the center 
@@ -68,7 +68,7 @@ public class Deck {
         return passCheck;        
     }
 
-    // Method Returning the Index of the Starting Player
+    // Returning the Index of the Starting Player
     public static int startingPlayerIndex(String center) {
 
         // Cards that determine who will be the Starting Player
@@ -104,7 +104,7 @@ public class Deck {
         return playerNum;
     }
 
-    // TODO Method to Deal a card to player from their deck
+    // Deal a card to player from their deck
     public void dealCardFromDeck(Player player) {
         
         for (int i = 0; i < deck.size(); i++) {

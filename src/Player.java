@@ -35,7 +35,7 @@ public class Player {
         return NO_OF_CARD_EACH_PLAYER;
     }
     
-    // TODO Adding score to the Winning Player
+    // Adding score to the Winning Player
     public void addScore() {
 
         for (String card : playerCard) {
@@ -105,28 +105,6 @@ public class Player {
         }
         return passCheck;
         
-    }
-
-    // TODO A Random Card Played by the player
-    public String cardPlayedbyCurrentPlayer(ArrayList<String> c) {
-
-        for (String card : playerCard) {
-            
-            if(c.isEmpty()) {
-                c.add(card);
-            }
-            
-            if (card.charAt(0) == (c.get(0).charAt(0)) || card.charAt(1) == (c.get(0).charAt(1)) ) {
-                
-                System.out.println("Card Played: " + card);
-                return card;
-            }
-            else {
-                System.out.println("Card Played: " + card);
-                return card;
-            }
-        }
-        return "";
     }
 
     // Method Returning the index of the Trick Winner
@@ -229,4 +207,60 @@ public class Player {
         }
         return temp;
     }
+
+    // Add Cards to player
+    public static void addCardToPlayer(ArrayList<Player> playerList, Deck deck1 ) {
+
+        // Dealing 1 Card at a time to each player from the deck
+        for (int i = 0; i < Player.getNoOfCardsEachPlayer(); i++) {
+
+            playerList.get(0).dealCard(deck1);
+            playerList.get(1).dealCard(deck1);
+            playerList.get(2).dealCard(deck1);
+            playerList.get(3).dealCard(deck1);
+        }
+    }
+
+    // TODO Part-2
+    // public Boolean skipPlayer(String c) {
+        
+    //     Boolean skipPlayer = false;
+
+    //     for (int i = 0; i < 1; i++) {
+            
+    //         for (int j = 0; j < playerCard.size(); j++) {
+
+    //             if (!(playerCard.get(j).charAt(0) == (c.charAt(0)) || playerCard.get(j).charAt(1) == (c.charAt(1))) ) {
+        
+    //                 skipPlayer = true;
+    //             }
+    //             else if ((playerCard.get(j).charAt(0) == (c.charAt(0)) || playerCard.get(j).charAt(1) == (c.charAt(1)))) {
+    //                 skipPlayer = false;
+    //                 break;
+    //             }
+    //         }
+            
+    //     }
+    //     return skipPlayer;
+    // }
+
+     // TODO Part-2
+            // Skip Player
+            // if (deck1.getDeck().isEmpty() && currentPlayer.skipPlayer(deck1.getCenter().get(0))) {
+
+            //     currentPlayerIndex = (currentPlayerIndex + 1) % playerList.size();
+            //     tempRoundCounter++;
+            //     winnerPlayer = Player.trickWinnerPlayer(deck1, userInput, currentPlayerIndex, trick);
+
+            //     if (tempRoundCounter%4 == 0 && tempRoundCounter != 0) {
+            //         trick++;
+            //         currentPlayerIndex = winnerPlayer;
+            //         currentPlayer = playerList.get(currentPlayerIndex);
+            //         currentPlayer.addScore();
+            //     }
+            //     gameStats(playerList, currentPlayerIndex, trick);
+
+            // }
+
+    
 }
