@@ -109,15 +109,15 @@ public class Deck {
         
         for (int i = 0; i < deck.size(); i++) {
             
-            if (deck.get(i).charAt(0) == (this.center.get(0).charAt(0)) || deck.get(i).charAt(1) == (this.center.get(0).charAt(1))) {
+            if (deck.get(0).charAt(0) == (this.center.get(0).charAt(0)) || deck.get(0).charAt(1) == (this.center.get(0).charAt(1))) {
 
-                player.getPlayerCard().add(deck.get(i));
-                deck.remove(i);
+                player.getPlayerCard().add(deck.get(0));
+                deck.remove(0);
                 break;
             }
             else {
-                player.getPlayerCard().add(deck.get(i));
-                deck.remove(i);
+                player.getPlayerCard().add(deck.get(0));
+                deck.remove(0);
             }
         }
     }
