@@ -41,7 +41,7 @@ public class Deck implements Serializable {
         Collections.shuffle(deck);
 
         // Check to see if deck is correctly working
-        System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
+        // System.out.println("\nAfter Suffle\n" + deck + "\nDeck Size: "+deck.size());
     }
 
     // Check Suit/Rank matches the center 

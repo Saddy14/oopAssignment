@@ -143,43 +143,65 @@ public class Game implements Serializable {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("\033c");
-        System.out.println(" _______  ______  ");
-        System.out.println("|  ___  ||  __  | ");
-        System.out.println("| |  |__|| |  | | "); 
-        System.out.println("| |  ___ | |  | | ");
-        System.out.println("| | |_  || |  | | ");
-        System.out.println("| |   | || |  | | ");
-        System.out.println("| |___| || |__| | ");
-        System.out.println("|_______||______| ");
-        System.out.println(" _______  ______  ______  __     __ ");
-        System.out.println("|  ___  ||  __  ||  __  ||   \\  /  |");
-        System.out.println("| |   | || |  | || |  | ||    \\/   |");
-        System.out.println("| |___| || |  | || |  | || |\\   /| |");
-        System.out.println("|  ___ < | |  | || |  | || | \\_/ | |");
-        System.out.println("| |   | || |  | || |  | || |     | |");
-        System.out.println("| |___| || |__| || |__| || |     | |");
-        System.out.println("|_______||______||______||_|     |_|");
-        System.out.println("_________________________________");
-        System.out.println("|To start a new game, enter s    |");
-        System.out.println("|To load a saved game, enter load|");
-        System.out.println("|________________________________|");
-        System.out.println(" ");
-        System.out.print(">");
+        System.out.println("                ,----..                                                   ");
+        System.out.println("  ,----..      /   /   \\                                                  ");
+        System.out.println(" /   /   \\    /   .     :                                                 ");
+        System.out.println("|   :     :  .   /   ;.  \\                                                ");
+        System.out.println(".   |  ;. / .   ;   /  ` ;                                                ");
+        System.out.println(".   ; /--`  ;   |  ; \\ ; |                                                ");
+        System.out.println(";   | ;  __ |   :  | ; | '                                                ");
+        System.out.println("|   : |.' .'.   |  ' ' ' :                                                ");
+        System.out.println(".   | '_.' :'   ;  \\; /  |                                                ");
+        System.out.println("'   ; : \\  | \\   \\  ',  /                                                 ");
+        System.out.println("'   | '/  .'  ;   :    /                                                  ");
+        System.out.println("|   :    /     \\   \\ .'                                                   ");
+        System.out.println(" \\   \\ .'       `---`                                     ,---,    ,---,  ");
+        System.out.println("  `---`        ,----..       ,----..             ____  ,`--.' | ,`--.' |  ");
+        System.out.println("    ,---,.    /   /   \\     /   /   \\          ,'  , `.|   :  : |   :  :  ");
+        System.out.println("  ,'  .'  \\  /   .     :   /   .     :      ,-+-,.' _ |'   '  ; '   '  ;  ");
+        System.out.println(",---.' .' | .   /   ;.  \\ .   /   ;.  \\  ,-+-. ;   , |||   |  | |   |  |  ");
+        System.out.println("|   |  |: |.   ;   /  ` ;.   ;   /  ` ; ,--.'|'   |  ;|'   :  ; '   :  ;  ");
+        System.out.println(":   :  :  /;   |  ; \\ ; |;   |  ; \\ ; ||   |  ,', |  ':|   |  ' |   |  '  ");
+        System.out.println(":   |    ; |   :  | ; | '|   :  | ; | '|   | /  | |  ||'   :  | '   :  |  ");
+        System.out.println("|   :     \\ .   |  ' ' ' :.   |  ' ' ' :'   | :  | :  |,;   |  ; ;   |  ;  ");
+        System.out.println("|   |   . |'   ;  \\; /  |'   ;  \\; /  |;   . |  ; |--' `---'. | `---'. |  ");
+        System.out.println("'   :  '; | \\   \\  ',  /  \\   \\  ',  / |   : |  | ,     `--..`;  `--..`;  ");
+        System.out.println("|   |  | ;   ;   :    /    ;   :    /  |   : '  |/     .--,_    .--,_     ");
+        System.out.println("|   :   /     \\   \\ .'      \\   \\ .'   ;   | |`-'      |    |`. |    |`.   ");
+        System.out.println("|   | ,'       `---`         `---`     |   ;/          `-- -`, ;`-- -`, ; ");
+        System.out.println("`----'                                 '---'             '---`\"   '---`\"  ");
+        System.out.println();
+        System.out.println(" _______________________________________________________________ ");
+        System.out.println("|                                                               |");
+        System.out.println("| 1. Start a New Game                                           |");
+        System.out.println("| 2. Load a Saved Game                                          |");
+        System.out.println("| 3. Quit                                                       |");
+        System.out.println("|_______________________________________________________________|");
+        System.out.println();
+
+        System.out.print("Enter your choice: ");
 
         String userInput = scanner.nextLine();
-  
-        if (userInput.equals("s")) {   //New Game
-            System.out.print("\033c");
-            createInstance();
-            startGame();
-        }
-        else if (userInput.equals("load")) {   //Load Game
 
-            LoadGame myLoadGame = new LoadGame();
-            myLoadGame.startLoading();
-        }
-        else {                                  //Wrong input
-            mainMenu();
+        switch (userInput) {
+            case "1":
+                System.out.println("Starting a new game...");
+                createInstance();
+                startGame();
+                break;
+            case "2":
+                System.out.println("Loading a saved game...");
+                LoadGame myLoadGame = new LoadGame();
+                myLoadGame.startLoading();
+                break;
+            case "3":
+                System.out.println("Quitting the game...");
+                System.exit(0);
+                break;
+            default:
+                System.out.println("Invalid choice. Please try again.");
+                mainMenu();
+                break;
         }
         scanner.close();
     }
