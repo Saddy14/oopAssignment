@@ -41,7 +41,7 @@ public class SaveGame implements Serializable {
         myGame.setWinnerPlayer(winnerPlayer);
         myGame.setSaticMethodReplace(saticMethodReplace);
 
-        FileOutputStream fileout = new FileOutputStream("save.ser");
+        FileOutputStream fileout = new FileOutputStream("Part-2\\src\\save.ser");
         ObjectOutputStream out = new ObjectOutputStream(fileout);
 
         out.writeObject(myGame);

@@ -10,7 +10,7 @@ public class LoadGame implements Serializable {
     public void startLoading() throws IOException, ClassNotFoundException {
 
         Game myGame = null;
-        FileInputStream fileIn = new FileInputStream("save.ser");
+        FileInputStream fileIn = new FileInputStream("Part-2\\src\\save.ser");
         ObjectInputStream in = new ObjectInputStream(fileIn);
         myGame = (Game) in.readObject();
         in.close();
