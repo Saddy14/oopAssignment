@@ -4,7 +4,7 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class SaveGame implements Serializable {
+public class SaveGame implements Serializable { 
     private Game myGame = new Game();
     private Deck deck1;
     private ArrayList<Player> playerList;

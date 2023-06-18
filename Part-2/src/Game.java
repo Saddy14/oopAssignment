@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Game implements Serializable {
+public class Game implements Serializable { 
     
     private Deck deck1;
     private ArrayList<Player> playerList;

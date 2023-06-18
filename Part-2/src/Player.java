@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 
-public class Player implements Serializable {
+public class Player implements Serializable { 
 
     private String name;
     private int score = 0;

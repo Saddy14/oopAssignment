@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Deck implements Serializable {
+public class Deck implements Serializable { 
     
     // Arrays for suit & rank
     private static String[] suit = { "c", "d", "h", "s" };
