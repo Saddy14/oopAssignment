@@ -15,8 +15,8 @@ public class Player implements Serializable {
     private ArrayList<String> playerCard = new ArrayList<>();
 
     // Store PlayerCard & Index to determine the Winner
-    private static ArrayList<String> trickWinnerPlayerCard = new ArrayList<>();
-    private static ArrayList<Integer> trickWinnerPlayerIndex = new ArrayList<>();
+    private  ArrayList<String> trickWinnerPlayerCard = new ArrayList<>();
+    private  ArrayList<Integer> trickWinnerPlayerIndex = new ArrayList<>();
 
     // Constructer
     public Player(String name) {
