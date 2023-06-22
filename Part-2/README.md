@@ -6,7 +6,7 @@ No | ID         | Name | Task descriptions | Contribution %
 -- | ---------- | ---- | ----------------- | --------------
 1  |1221301874 |SADMAN, ZULFIQUER                  | Improved existing code in the program. + Feature 1 & 2 ✔️|25%
 2  |1211103085 |MUHAMMAD FARID BIN JAYATAN         | Improved User Friendliness input and output, proper error handling. + Feature 3 ✔️ |25%
-3  |1211103222	|ASYRANI SYAZWAN BIN YUHANIS        | Implement Save & Load feature, Feature 4 & 6 ✔️                   |25%
+3  |1211103222	|ASYRANI SYAZWAN BIN YUHANIS        | Implement Save & Load feature, Feature 4 & 5 ✔️                   |25%
 4  |1211307169	|MUHAMMAD AMIN RAFIQ BIN ABU SUPIAN | Improved Data Structures + Feature 6 ✔️                           |25%
 
 
